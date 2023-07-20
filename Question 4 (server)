@@ -4,13 +4,10 @@ import random
 
 # List of quotes
 quotes = [
-    "Be yourself; everyone else is already taken. - Oscar Wilde",
-    "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe. - Albert Einstein",
-    "You only live once, but if you do it right, once is enough. - Mae West",
-    "In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
-    "The only way to do great work is to love what you do. - Steve Jobs"
+    "if I want to kill myself, I would climb up your ego and jump down to your IQ",
+    "kita selalu selamat pagi tapi pagi pernah ke selamatkan kita",
+    "cuba jangan main phone time drive, mainlah saxophone insya Allah kena penjara",
 ]
-
 def handle_client(client_socket):
     # Retrieve a random quote from the list
     quote = random.choice(quotes)
