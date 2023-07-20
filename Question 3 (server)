@@ -1,6 +1,6 @@
 import socket
 
-# Conversion function: bar to atm
+# Conversion function: Bar to atm
 def bar_to_atm(pressure_bar):
     return pressure_bar * 0.986923
 
@@ -8,16 +8,16 @@ def bar_to_atm(pressure_bar):
 SERVER_IP = "0.0.0.0"
 SERVER_PORT = 8443
 
-
+# Create a server socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-
+# Bind the server socket to the specified IP and port
 server_address = (SERVER_IP, SERVER_PORT)
 server_socket.bind(server_address)
 
-
+# Listen for incoming connections
 server_socket.listen(1)
-print("Server listening on {}:{}".format(SERVER_IP, SERVER_PORT))
+print("Server is now listening on {}:{}".format(SERVER_IP, SERVER_PORT))
 
 while True:
     # Wait for a connection from the client
@@ -30,7 +30,7 @@ while True:
         # Convert the pressure to atm
         pressure_atm = bar_to_atm(pressure_bar)
 
-        # Send the result back to the client
+        # Send the converted result back to the client
         client_socket.send(str(pressure_atm).encode('utf-8'))
 
     except ValueError:
