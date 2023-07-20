@@ -10,21 +10,21 @@ int main() {
     int client_socket, random_num;
     struct sockaddr_in server_addr;
 
-    // Create socket
+    // Create a client socket
     client_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (client_socket == -1) {
-        perror("Error creating socket");
+        perror("Error creating the socket");
         exit(EXIT_FAILURE);
     }
 
-    // Prepare server address structure
+    // Set up the server address structure
     server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = inet_addr("192.168.190.128"); 
+    server_addr.sin_addr.s_addr = inet_addr("192.168.190.128");
     server_addr.sin_port = htons(SERVER_PORT);
 
     // Connect to the server
     if (connect(client_socket, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1) {
-        perror("Error connecting to server");
+        perror("Error connecting to the server");
         close(client_socket);
         exit(EXIT_FAILURE);
     }
@@ -32,7 +32,7 @@ int main() {
     // Receive the random number from the server
     recv(client_socket, &random_num, sizeof(random_num), 0);
 
-    printf("Received random number from server: %d\n", random_num);
+    printf("Received a random number from the server: %d\n", random_num);
 
     // Close the socket and exit
     close(client_socket);
